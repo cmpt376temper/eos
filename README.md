@@ -60,7 +60,7 @@ It is called build.sh with following inputs.
 - architecture [ubuntu|darwin]
 - optional mode [full|build] 
 
-The second optional input can be full or build where full implies that it installs dependencies and builds eos. If you omit this input then build script always installs dependencies and then builds eos.
+The second optional input can be full or build. The input ‘full’ implies that it installs dependencies and builds eos. If user omits this input, build script will always install dependencies and then builds eos.
 
 ```bash
 ./build.sh <architecture> <optional mode>
@@ -224,8 +224,7 @@ As you've previously added `plugin = eos::wallet_api_plugin` into `config.ini`, 
 cd ~/eos/build/programs/eosc/
 ./eosc wallet create # Outputs a password that you need to save to be able to lock/unlock the wallet
 ```
-
-For the purpose of this walkthrough, import the private key of the `inita` account, a test account included within genesis.json, so that you're able to issue API commands under authority of an existing account. The private key referenced below is found within your `config.ini` and is provided to you for testing purposes. 
+For this walkthrough, import the private key of the inita account, a test account included within genesis.json, so that you can issue API commands under the authority of an existing account. The private key referenced below is found within your `config.ini` and is provided to you for testing purposes. 
 
 ```bash
 ./eosc wallet import 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
@@ -331,8 +330,7 @@ Next verify the currency contract has the proper initial balance:
 ### Transfering funds with the sample "currency" contract 
 
 Anyone can send any message to any contract at any time, but the contracts may reject messages which are not given necessary permission. Messages are not
-sent "from" anyone, they are sent "with permission of" one or more accounts and permission levels. The following commands shows a "transfer" message being
-sent to the "currency" contract.  
+sent "from" anyone, they are sent "with permission of" one or more accounts and permission levels. The following commands show a "transfer" message being sent to the "currency" contract.
 
 The content of the message is `'{"from":"currency","to":"inita","amount":50}'`. In this case we are asking the currency contract to transfer funds from itself to
 someone else.  This requires the permission of the currency contract.
